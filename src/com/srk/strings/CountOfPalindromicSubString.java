@@ -11,8 +11,6 @@ public class CountOfPalindromicSubString {
 		for(int i = 0; i<c.length; i++) {
 			count+= palindromLen(c, i, i);
 			count+= palindromLen(c,i,i+1);
-			
-			
 		}
 		
 		System.out.println(count);

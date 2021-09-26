@@ -26,7 +26,7 @@ public class MaxDeletionToMakeAPalindromSubSeq {
 		if(dp[s][e] == null) {
 			
 			if(c[s] == c[e]) {
-				dp[s][e] = 2+getResult(c, dp, s+1, e-1);
+				dp[s][e] = 2 + getResult(c, dp, s+1, e-1);
 			} else {
 				int l1 = getResult(c, dp, s+1, e);
 				int l2 = getResult(c, dp, s, e-1);

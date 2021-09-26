@@ -38,9 +38,10 @@ public class ReverseSubLList {
 		node.next.next.next.next.next.next = new Node(7);
 		node.next.next.next.next.next.next.next = new Node(8);
 		
-		//reverse(node, 1, 9);
+		System.out.println(node);
+		System.out.println(reverse(node, 1, 6));
 		
-		reverseEveryKElements(node, 3);
+		//reverseEveryKElements(node, 3);
 
 	}
 	

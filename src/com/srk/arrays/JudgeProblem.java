@@ -1,5 +1,6 @@
 package com.srk.arrays;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +21,8 @@ public class JudgeProblem {
 			int index = val-'A';
 			dependency[index]++;
 		}
+		
+		System.out.println(Arrays.toString(dependency));
 		
 		Character judge = '\0';
 		for(Character c : set) {
