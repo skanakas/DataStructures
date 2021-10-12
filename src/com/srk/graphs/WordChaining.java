@@ -42,10 +42,10 @@ class vertex {
 	}
 }
 
-class graph {
+class GraphV1 {
 	private List<vertex> g;
 
-	public graph(List<vertex> g) {
+	public GraphV1(List<vertex> g) {
 		super();
 		this.g = g;
 	}
@@ -191,7 +191,7 @@ public class WordChaining {
 	// Test Program.
 	public static void main(String[] args) {
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList("eve", "eat", "ripe", "tear"));
-		graph g = new graph(new ArrayList<vertex>());
+		GraphV1 g = new GraphV1(new ArrayList<vertex>());
 		g.createGraph(list);
 		boolean result = g.canChainWords(list.size());
 		String output = result == true ? "true" : "false";

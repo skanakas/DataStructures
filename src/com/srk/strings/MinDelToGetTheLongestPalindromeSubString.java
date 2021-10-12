@@ -1,5 +1,7 @@
 package com.srk.strings;
 
+import java.util.Arrays;
+
 public class MinDelToGetTheLongestPalindromeSubString {
 
 	public static void main(String[] args) {
@@ -28,8 +30,11 @@ public class MinDelToGetTheLongestPalindromeSubString {
 				} else {
 					dp[start][end] = Math.max(dp[start+1][end], dp[start][end-1]);
 				}
-				
 			}
+		}
+		
+		for(int d[] : dp) {
+			System.out.println(Arrays.toString(d));
 		}
 		
 		return dp[0][s.length()-1];
