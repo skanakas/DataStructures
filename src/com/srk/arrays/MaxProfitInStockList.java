@@ -3,20 +3,53 @@ package com.srk.arrays;
 public class MaxProfitInStockList {
 
 	public static void main(String[] args) {
-		//sellOnce();
-		int arr[] = {12,11,13,9,12,8,14,13,15};
+		sellOnce();
+		sellMultipleTimes();
+		sellOnlyTwice();
+	}
+
+	private static void sellOnlyTwice() {
+		int prices[] = {3,3,5,0,0,3,1,4};
 		
-		int fs = Integer.MIN_VALUE, ss = Integer.MIN_VALUE;
-		int fb = 0, sb = 0;
-		
-		for(int i=0; i<arr.length-1; i++) {
-			fb = Math.max(fb, -arr[i]);
-			fs = Math.max(fs, fb+arr[i]);
-			sb = Math.max(sb, fs-arr[i]);
-			ss = Math.max(ss, sb+arr[i]);
-		}
+		int fb = Integer.MAX_VALUE;
+    int sb = Integer.MAX_VALUE;
+    int fs = 0;
+    int ss = 0;
+    
+    for(int i = 0; i<prices.length; i++) {
+        fb = Math.min(fb, prices[i]);
+        fs = Math.max(fs, prices[i] - fb);
+        sb = Math.min(sb, prices[i] - fs);
+        ss = Math.max(ss, prices[i] - sb);
+    }
 		
 		System.out.println(ss);
+	}
+
+	private static void sellMultipleTimes() {
+		int prices[] = {7,1,5,3,6,4};
+		int vally = prices[0];
+		int peak = prices[0];
+		int i = 0;
+		int maxProfit = 0;
+		while(i<prices.length-1) {
+			
+			while(i<prices.length-1 && prices[i+1]<=prices[i]) {
+				i++;
+			}
+			vally = prices[i];
+			
+			while(i<prices.length-1 && prices[i+1]>= prices[i]) {
+				i++;
+			}
+			peak = prices[i];
+			
+			maxProfit += peak - vally;
+			
+		}
+		
+		System.out.println(maxProfit);
+		
 	}
 
 	private static void sellOnce() {

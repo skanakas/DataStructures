@@ -19,10 +19,10 @@ public class PalindromPartition {
 			if(i>0 && preEnd>=i)
 				continue;
 			
-			int maxL = isPalindrome(c, i, i);
-			//int l2 = isPalindrome(c, i, i+1);
+			int l1 = isPalindrome(c, i, i);
+			int l2 = isPalindrome(c, i, i+1);
 			
-			//int maxL = Math.max(l1, l2);
+			int maxL = Math.max(l1, l2);
 			if(maxL>0) {
 				int s = i - ((maxL-1)/2);
 				int e = (maxL/2) + i;

@@ -2,35 +2,39 @@ package com.srk.arrays;
 
 public class SearchInSortedArray {
 
-
-	public static boolean search2(int[][] matrix, int target) {
-
+	public static boolean search(int[][] matrix, int target) {
+		int nr = matrix.length;
+		int nc = matrix[0].length;
+		
 		int left = 0;
-		int right = matrix.length-1;
-
-		while(left+1 < right){
+		int right = nr*nc-1;
+		
+		while(left <= right) {
 			int mid = left + (right - left)/2;
-			int midVal = matrix[mid][0];
-			//int leftVal = matrix[left][0];
-			//int rightVal = matrix[right][0];
-
-			if(target < midVal){
-				right = mid;
+			int midVal = matrix[mid/nc][mid%nc];
+			
+			if(matrix[mid/nc][mid%nc] == target) {
+				return true;
+			} else if(target > midVal) {
+				left = mid+1;
 			} else {
-				left = mid;
+				right = mid-1;
 			}
 		}
-		int row = left;
-		System.out.println("row index = "+row);
 		return false;
-
 	}
 	
 	public static void main(String[] args) {
 		
-		int[][] m = new int[][] {{0, 1, 2, 3},{4, 5, 6, 7},{8, 9, 10, 11}};
-		int target = 6;
-		search2(m,target);
+		int[][] m = {
+								 {10, 11, 12, 13},
+						     {14, 15, 16, 17},
+						     {27, 29, 30, 31},
+						     {32, 33, 39, 80}
+						    };
+		int target = 30;
+		System.out.println(search(m,target));
+		
 	}
 
 }

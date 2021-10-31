@@ -26,14 +26,13 @@ public class LongestHappyString {
 		StringBuilder str = new StringBuilder();
 
 		while(!maxHeap.isEmpty()) {
-
 			Node curr = maxHeap.poll();
 			for(int i = 0; i<2 && curr.count>0; i++){
 				str.append(curr.c);
 				curr.count--;
 			}
 
-			System.out.println(str.toString());
+			//System.out.println(str.toString());
 
 			if(curr.count > 0 && !maxHeap.isEmpty()) {
 				Node temp = maxHeap.peek();
